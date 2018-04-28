@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Задача 2</title>
+</head>
+<body>
+<script type="text/javascript">
+var a = prompt ("Введите число в диапазоне от -999 до 999");
+if (a==0){
+	alert ("Нулевое число");
+}else if (a<=-100){
+	alert ("Отрицательное трехзначное число");
+}else if ((a<=-10)&(a>=-99)){
+	alert("Отрицательное двузначное число");
+}else if ((a>=-9)&(a<0)){
+	alert ("Отрицательное однозначное число");
+}else if ((a>=10)&(a<=99)){
+ 	alert("Положительное двузначное число");
+}else if ((a>0)&(a<=9)) {
+	alert ("Положительное однозначное число");
+}else {
+	alert("Положительное трехзначное число");
+}
+</script>
+</body>
+</html>
