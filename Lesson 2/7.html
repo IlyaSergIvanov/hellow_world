@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Задача 7</title>
+</head>
+<body>
+<script type="text/javascript">
+var plate = parseInt(prompt("Введите количество тарелок:"));
+var detergent = parseFloat(prompt("Введите количество моющего средства:"));
+while (true) {
+plate--;
+detergent=(detergent - 0.5);
+if ((detergent===0)&&(plate>0)){
+alert("Моющее средство закончилось!");
+alert("Осталось " + plate + " тарелок");
+break;
+}
+if ((plate === 0)&&(detergent>0))  {
+alert("Все тарелки вымыты. Осталось "+ detergent +" ед. моющего средства");
+break;
+}
+if ((plate === 0) && (detergent === 0)) {
+alert("Все тарелки вымыты, моющее средство закончилось");
+break;
+}
+}
+</script>
+</body>
+</html>

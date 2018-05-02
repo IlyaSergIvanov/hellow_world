@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Задача 2</title>
+</head>
+<body>
+<script type="text/javascript">
+alert ("Введите координаты для вершины A");
+var x1=parseInt(prompt("x:"));
+var y1=parseInt(prompt("y:"));
+var z1=parseInt(prompt("z:"));
+alert ("Введите координаты для вершины B");
+var x2=parseInt(prompt("x:"));
+var y2=parseInt(prompt("y:"));
+var z2=parseInt(prompt("z:"));
+alert ("Введите координаты для вершины C");
+var x3=parseInt(prompt("x:"));
+var y3=parseInt(prompt("y:"));
+var z3=parseInt(prompt("z:"));
+var a = ((x1-x2)**2+(y1-y2)**2+(z1-z2)**2);
+var b = ((x2-x3)**2+(y2-y3)**2+(z2-z3)**2);
+var c = ((x1-x3)**2+(y1-y3)**2+(z1-z3)**2);
+if ((a==(b+c))||(b==(a+c))||(c==(b+a))){
+alert("Прямоугольный треугольник");}
+else {
+	alert("Треугольник не прямоугольный");
+}
+
+
+</script>
+	
+</body>
+</html>

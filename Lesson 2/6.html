@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Задача 6</title>
+</head>
+<body>
+<script type="text/javascript">
+var year=parseInt(prompt("Введите год"));
+if ((year % 100 === 0) && (year % 400 !== 0)) {
+    alert("Год не високосный");
+} else if (year % 4 === 0) {
+    alert("Год високосный");
+} else if ( year % 4 !== 0) {
+    alert("Год не високосный");
+}
+</script>
+</body>
+</html>
