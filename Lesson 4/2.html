@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Задача 2</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td id="cell_0"></td>
+        <td id="cell_1"></td>
+        <td id="cell_2"></td>
+    </tr>
+    <tr>
+        <td id="cell_3"></td>
+        <td id="cell_4"></td>
+        <td id="cell_5"></td>
+    </tr>
+    <tr>
+        <td id="cell_6"></td>
+        <td id="cell_7"></td>
+        <td id="cell_8"></td>
+    </tr>
+   </table>
+<style type="text/css">
+table tr td{
+    border: 1px solid #171414;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+</style>
+<script type="text/javascript">
+var area = [ 1, null, 0, null, 1, null, null, null, null ];
+for (i=0;i<area.length;i++){
+    if (area[i]===null){
+        var cell = "cell_" + i;
+        cell = document.getElementById("cell_" + i);
+        cell.innerHTML=" ";
+    }else if (area[i]===0){
+        var cell = "cell_" + i;
+        cell = document.getElementById("cell_" + i);
+        cell.innerHTML="0";
+    }else if (area[i]===1){
+        var cell = "cell_" + i;
+        cell = document.getElementById("cell_" + i);
+        cell.innerHTML="x";
+    }
+}
+</script>
+</body>
+</html>
