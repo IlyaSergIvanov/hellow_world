@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Задача 1</title>
+</head>
+<body>
+<script type="text/javascript">
+let student = {
+	name:"Ilya",
+	surname:"Ivanov",
+	age:"32",
+	interests:["cycling","tourism","coding","reading"],
+	univer: "IFMO"
+}
+function getStudent(student){
+	for(var key in student){
+		if(typeof student[key] === "object" && 
+			student[key] instanceof Object) {
+			var interests = student[key];
+			for(var key2 in interests){
+				console.log (key + " - " + key2 + " - " + interests[key2]);
+			}
+		} else {
+			console.log (key + " - " + student[key]);
+		}
+	}
+}
+console.log(getStudent(student));
+</script>
+</body>
+</html>

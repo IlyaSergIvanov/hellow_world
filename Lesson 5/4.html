@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Задача 4</title>
+</head>
+<body>
+<script type="text/javascript">
+	var year = parseInt(prompt("Введите год:"));
+	var month = parseInt(prompt("Введите месяц:"));
+	var day = parseInt(prompt("Введите день:"));
+	var hour = parseInt(prompt("Введите час:"))
+	var min = parseInt(prompt("Введите минуты:"))
+function getNyDate(day,month,year,hour,min){
+	var date = new Date(year,(month-1),day,hour,min);
+	var NyD = new Date();
+	var Ny = (NyD.getFullYear()+1);
+	var NyDate = new Date(Ny,0,1,0,0);
+	var diff = (NyDate-date);
+	var minutes_ms = (diff/(1000*60));
+	var days = Math.floor((minutes_ms/(24*60)));	
+	var hours = Math.floor((minutes_ms/60)-(days*24));
+	var minutes = (minutes_ms-((days*24*60)+hours*60));
+	var d = "дней";
+	var h = "часов"
+	var m = "минут"
+		if (/^1$|^21$/.test(days)){
+			d = "день";
+		}else if (/^[2-4]$|(^2[2-4]$)/.test(days)){
+			d = "дня";
+		}
+		if (/^1$|^21$/.test(hours)){
+			h = "час";
+		}else if (/^[2-4]$|(^2[2-4]$)/.test(hours)){
+			h = "часа";
+		}
+		if (/^1$|^21$/.test(minutes)){
+			m = "минута";
+		}else if (/^[2-4]$|(^2[2-4]$)|(^3[2-4]$)|(^4[2-4]$)|(^5[2-4]$)/.test(minutes)){
+			m = "минуты";
+		}
+	var result = ["До нового года осталось: ",   days,  d , hours,  h , 
+	minutes, m];
+	var fresult = result.toString();
+	var ff = fresult.replace(/,/g,' ');
+	return ff;
+
+}
+alert(getNyDate(day,month,year,hour,min));
+</script>
+</body>
+</html>

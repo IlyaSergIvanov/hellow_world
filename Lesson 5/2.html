@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Задача 2</title>
+</head>
+<body>
+<script type="text/javascript">
+var arrA = [1,2];
+var arrB = [2,3];
+var temp;
+for (i=0;i<arrA.length;i++){
+	temp=arrA[i];
+	for (j=0;j<arrB.length;j++){
+		if (temp===arrB[j]){
+			arrB.splice(j, 1);
+		}
+	}
+}
+arrC=arrA.concat(arrB);
+alert(arrC);
+</script>
+</body>
+</html>
