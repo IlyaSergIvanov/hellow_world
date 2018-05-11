@@ -22,19 +22,19 @@ function getNyDate(day,month,year,hour,min){
 	var hours = Math.floor((minutes_ms/60)-(days*24));
 	var minutes = (minutes_ms-((days*24*60)+hours*60));
 	var d = "дней";
-	var h = "часов"
-	var m = "минут"
-		if (/^1$|^21$/.test(days)){
+	var h = "часов";
+	var m = "минут";
+		if (/^1$|^21$|31$|41$|51$|61$|71$|81$|91$/.test(days)){
 			d = "день";
-		}else if (/^[2-4]$|(^2[2-4]$)/.test(days)){
+		}else if (/^[2-4]$|(0[2-4]$)|(2[2-4]$)|(3[2-4]$)|(4[2-4]$)|(5[2-4]$)|(6[2-4]$)|(7[2-4]$)|(8[2-4]$)|(9[2-4]$)/.test(days)){
 			d = "дня";
 		}
 		if (/^1$|^21$/.test(hours)){
 			h = "час";
-		}else if (/^[2-4]$|(^2[2-4]$)/.test(hours)){
+		}else if (/^[2-4]$|(2[2-4]$)/.test(hours)){
 			h = "часа";
 		}
-		if (/^1$|^21$/.test(minutes)){
+		if (/^1$|^21$|31$|41$|51$/.test(minutes)){
 			m = "минута";
 		}else if (/^[2-4]$|(^2[2-4]$)|(^3[2-4]$)|(^4[2-4]$)|(^5[2-4]$)/.test(minutes)){
 			m = "минуты";
