@@ -6,25 +6,24 @@
 </head>
 <body>
 <script type="text/javascript">
-//nction getRand() {
-  //var  = [];
+
 var min = 0;
 var max = 100;
 
 function getNum(min,max){
     var k = Math.floor(Math.random() * (max - min) + min);
     var l = getRandArr(k);
-    function getRandArr(n){
+    function getRandArr(j){
         var arr = [];
         for (i=0;i<100;i++){
             var n = Math.floor(Math.random() * 101);
             arr.push(n);
         }
-    return arr[n];
+    return arr[j];
     }
     return l;
 }
-//
+
 
 console.log(getNum(min,max));
 
