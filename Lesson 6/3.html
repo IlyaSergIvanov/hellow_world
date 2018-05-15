@@ -12,7 +12,7 @@ var max = 100;
 
 function getNum(min,max){
     var k = Math.floor(Math.random() * (max - min) + min);
-    var l = getRandArr(k);
+    getRandArr(k);
     function getRandArr(j){
         var arr = [];
         for (i=0;i<100;i++){
@@ -21,7 +21,7 @@ function getNum(min,max){
         }
     return arr[j];
     }
-    return l;
+    return getRandArr(k);
 }
 
 

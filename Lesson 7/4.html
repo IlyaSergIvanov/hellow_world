@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Задача 04</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var str = prompt ("Введите строку");
+	var code = parseInt(prompt("Введите сдвиг"))
+	var	alfaBig = ('ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ');
+	var alfaSmall =('abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz')
+	var arrBig = alfaBig.split('');
+	var arrlow = alfaSmall.split('');
+	var arrStr = str.split('');
+	var arrcodeStr = [];
+	console.log(arrStr); 
+
+	 for (i=0; i<arrStr.length; i++) {
+	 	if (arrStr[i] === " "){
+	 		arrcodeStr.push(" ");
+	 	}else if (arrStr[i] === ","){
+	 		arrcodeStr.push("`");
+	 	}else if (arrStr[i] === "."){
+	 		arrcodeStr.push(".");
+	 	}else if (arrStr[i] === '"'){
+	 		arrcodeStr.push('"');
+	 	}else if (arrStr[i] === "'"){
+	 		arrcodeStr.push("'");
+	 	}
+	 	for (j=26; j<arrBig.length; j++) {
+	 		if (code >= 0){
+	 			var c = (j+(code-26));
+	 		}else if (code <0){
+	 			var c = (j+code);
+	 		}
+	 		if (arrStr[i] === arrBig[j]){
+	 			arrcodeStr.push(arrBig[c]);
+	 		}else if (arrStr[i] === arrlow[j]){
+	 			arrcodeStr.push(arrlow[c]);
+	 		}
+	 	}
+}
+	var res = arrcodeStr.join().replace(/,/g,'').replace(/`/g,',');
+	alert(res);
+	</script>
+</body>
+</html>

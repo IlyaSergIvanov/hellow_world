@@ -6,12 +6,12 @@
 </head>
 <body>
 <script type="text/javascript">
-var num = prompt("Введитее число для которого вы хотите вычислить факториал:");
+var num = parseInt(prompt("Введитее число для которого вы хотите вычислить факториал:"));
 	function factorial(num){
         if (num < 0) {
         return -1;
     }
-    else if (num == 0) {
+    else if (num === 0) {
         return 1;
     }
     else {

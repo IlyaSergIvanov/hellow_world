@@ -6,38 +6,19 @@
 </head>
 <body>
 <script type="text/javascript">
-var arrA = [1,2,3,3,4,4];
-var arrB = [5,6,6,2,4,2,2,3];
-var temp;
-var temp2;
-var temp1;
+var arrA = [2,1,2,2,2,3,3,4,4];
+var arrB = [5,6,6,2,4,2,2,2,2,2,3];
+var arrC = arrA.concat(arrB);
 
-for (a=0;a<arrB.length;a++){
-	temp1=arrB[a];
-	for (b=1;b<arrB.length;b++){
-		if (temp1===arrB[b]){
-		arrB.splice(a, 1);
-		}
-	}
-}
-for (k=0;k<arrA.length;k++){
-	temp2=arrA[k];
-	for (l=1;l<arrA.length;l++){
-		if (temp2===arrA[l]){
-		arrA.splice(k, 1);
-		}
-	}
-}
-for (i=0;i<arrA.length;i++){
-	temp=arrA[i];
-	for (j=0;j<arrB.length;j++){
-		if (temp===arrB[j]){
-		arrB.splice(j, 1);
+for (i = 0; i < arrC.length; i++) {
+	for (j = i + 1; j < arrC.length; j++) {
+		if (arrC[i] === arrC[j]) {
+			arrC.splice(i, 1);
+			i--;
 		}
 	}
 }
 
-arrC=arrA.concat(arrB);
 alert(arrC);
 </script>
 </body>
