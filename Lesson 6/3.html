@@ -7,25 +7,26 @@
 <body>
 <script type="text/javascript">
 
-var min = 0;
-var max = 100;
-
-function getNum(min,max){
-    var k = Math.floor(Math.random() * (max - min) + min);
-    getRandArr(k);
-    function getRandArr(j){
-        var arr = [];
-        for (i=0;i<100;i++){
-            var n = Math.floor(Math.random() * 101);
-            arr.push(n);
-        }
-    return arr[j];
+function getRandNum (min, max) {
+    var arr = [];
+    
+    return function() {
+        var num;
+        for (var i = 0; i < 100; i++) {
+            var num = Math.floor(Math.random() * max + min);
+            if (arr.indexOf(num) === -1) {
+                arr.push(num);
+                return num;
+            } else {
+                i--;
+            }
+        }   
+        
     }
-    return getRandArr(k);
+    return console.log(arr);
 }
-
-
-console.log(getNum(min,max));
+var result = getRandNum(1, 100);
+console.log(result());
 
 
 </script>	
