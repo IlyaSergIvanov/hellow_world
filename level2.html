@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Arkanoid Level 2</title>
+    <style>
+    * {
+     padding: 0;
+      margin: 0; 
+    } 
+    canvas { 
+    background: #eee; 
+    display: block; 
+    margin: 0 auto;
+     }  
+    .canvas { 
+        margin-top: 0px;
+    } 
+    div {
+    margin: auto;
+    height: 1000px;
+    background-image: url(images/galaxy.png); background-size: cover;
+    text-align: center;
+    padding-top: 150px;
+    font-size: 130px;
+
+}
+</style>
+    <script src="gamescript.js"></script>   
+</head>
+<body>
+    <div class="cancon">
+        <canvas class="canvas" id="myCanvas" width="720" height="480"></canvas>  
+    </div>
+   <embed src="sound/level2.mp3" autostart="true" hidden="false" loop="false" width="300" height="65" align="bottom">
+    </embed>
+<script>
+
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var ballRadius = 10;
+    var x = canvas.width/2;
+    var y = canvas.height-30
+    var dx = 4;
+    var dy = -4;
+    var paddleHeight = 10;
+    var paddleWidth = 60;
+    var paddleX = (canvas.width-paddleWidth)/2;
+    var rightPressed = false;
+    var leftPressed = false;
+    var brickRowCount = 6;
+    var brickColumnCount = 4;
+    var brickWidth = 100;
+    var brickHeight = 30;
+    var brickPadding = 10;
+    var brickOffsetTop = 30;
+    var brickOffsetLeft = 30;
+    var score = 30;
+    var lives = 3;
+    var bricks = [];
+    for(var c=0; c<brickColumnCount; c++) {
+        bricks[c] = [];
+        for(var r=0; r<brickRowCount; r++) {
+            bricks[c][r] = { x: 0, y: 0, status: 1 };
+        }
+    }
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+    document.addEventListener("mousemove", mouseMoveHandler, false);   
+     function collisionDetection() {
+        for(var c=0; c<brickColumnCount; c++) {
+            for(var r=0; r<brickRowCount; r++) {
+                var b = bricks[c][r];
+                if(b.status == 1) {
+                    if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+                        dy = -dy;
+                        b.status = 0;
+                        soundExpl('sound/space.mp3');
+                        score++;
+                        if(score == 60) {
+                            alert("Вы прошли игру! Ваш счет: " + score);
+                            document.location.reload();
+                    
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawLevel()
+        drawBricks();
+        drawBall();
+        drawPaddle();
+        drawScore();
+        drawLives();
+        collisionDetection();
+        if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+            soundExpl('sound/laser.mp3');
+            dx = -dx;
+
+        }
+        if(y + dy < ballRadius) {
+            soundExpl('sound/laser.mp3');
+            dy = -dy;
+        }
+        else if(y + dy > canvas.height-ballRadius) {
+            if(x > paddleX && x < paddleX + paddleWidth) {
+                soundExpl('sound/laser.mp3');
+                dy = -dy;
+            }
+            else {
+                lives--;
+                if(!lives) {
+                    alert("ВЫ ПРОИГРАЛИ! ВАШ СЧЕТ: " + score);
+                    document.location.reload();
+                }
+                else {
+                    x = canvas.width/2;
+                    y = canvas.height-30;
+                    dx = 4;
+                    dy = 4;
+                    paddleX = (canvas.width-paddleWidth)/2;
+                }
+            }
+        }
+        if(rightPressed && paddleX < canvas.width-paddleWidth) {
+            paddleX += 7;
+        }
+        else if(leftPressed && paddleX > 0) {
+            paddleX -= 7;
+        }
+        x += dx;
+        y += dy;
+        requestAnimationFrame(draw);
+    }
+    function drawLevel() {
+        ctx.font = "26px Arial";
+        ctx.fillStyle = "#black";
+        ctx.fillText("Уровень 2 ", 300, 20);
+    }
+    setTimeout(draw,1000);
+
+</script>
+
+</body>
+</html>
