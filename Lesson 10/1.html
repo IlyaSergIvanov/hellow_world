@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Задача 1</title>
+	<script src="script.js"></script>	
+	<style type="text/css">
+		
+
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+	function ProdBacket(){
+	this._products = [];
+
+	this.addProducts = function(product){
+		this._products.push(animal);
+		animal.stigmatize(this);
+	}
+	
+	this.babyTransfer = function(baby){
+		this._animals.push(baby);
+		baby.stigmatize(this);
+	}
+	this.getListAnimals = function(){
+		return this._animals; 
+	}
+}
+
+function Product(name,prise){
+	this._name = name;
+	this._prise = prise;
+}
+
+function DirectorZoo(name, zoo){
+	this._name = name;
+	this._zoo = zoo;
+	this.hijackAnimals = function(){
+		let lion = new Animal('king', true, 'cats');
+		this._zoo.addAnimals(lion);
+	}	
+}
+zoo = new Zoo();
+dr = new DirectorZoo('sasha', zoo);
+dr.hijackAnimals();
+console.log(zoo.getListAnimals());
+
+	
+
+	
+</script>
+	
+</body>
+</html>
