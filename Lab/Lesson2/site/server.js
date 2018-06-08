@@ -21,7 +21,7 @@ var serv = http.createServer(function onRequest(request,response){
 		var mimeType = mimeTypes[path.extname(pathname)];
 		pathname = pathname.substring(1,pathname.length);
 		console.log(pathname);
-		if ((extname == ".gif")||(extname=".jpg")){
+		if ((extname == ".gif")||(extname ==".jpg")){
 			var img = fs.readFileSync('./'+pathname);
 			response.writeHead(200,{'Content-Type':mimeType});
 			response.end(img,'binary');
